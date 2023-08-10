@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation("com.github.karizal:ads-base:1.0.0-r2")
+    api("com.github.karizal:ads-base:1.0.0-r2")
     implementation("com.applovin:applovin-sdk:11.10.1")
     implementation("com.google.android.gms:play-services-base:18.2.0")
 
