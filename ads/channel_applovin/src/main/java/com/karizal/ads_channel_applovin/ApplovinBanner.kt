@@ -53,29 +53,29 @@ class ApplovinBanner(
         val heightDp = MaxAdFormat.BANNER.getAdaptiveSize(activity).height
         val heightPx = AppLovinSdkUtils.dpToPx(activity, heightDp)
         banner.setListener(object : MaxAdViewAdListener {
-            override fun onAdLoaded(ad: MaxAd?) {
+            override fun onAdLoaded(ad: MaxAd) {
                 val view = container.allViews.first()
                 view.layoutParams = FrameLayout.LayoutParams(
                     RelativeLayout.LayoutParams.MATCH_PARENT,
-                    AppLovinSdkUtils.dpToPx(activity, ad?.size?.height ?: heightDp),
+                    AppLovinSdkUtils.dpToPx(activity, ad.size?.height ?: heightDp),
                 )
                 onSuccessLoaded.invoke(name)
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdLoaded")
             }
 
-            override fun onAdDisplayed(ad: MaxAd?) {
+            override fun onAdDisplayed(ad: MaxAd) {
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdDisplayed")
             }
 
-            override fun onAdHidden(ad: MaxAd?) {
+            override fun onAdHidden(ad: MaxAd) {
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdHidden")
             }
 
-            override fun onAdClicked(ad: MaxAd?) {
+            override fun onAdClicked(ad: MaxAd) {
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdClicked")
             }
 
-            override fun onAdLoadFailed(adUnitId: String?, error: MaxError?) {
+            override fun onAdLoadFailed(adUnitId: String, err: MaxError) {
                 if (possibleToLoad.invoke()) {
                     hideView(container)
                     onFailedLoaded.invoke()
@@ -83,15 +83,15 @@ class ApplovinBanner(
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdLoadFailed")
             }
 
-            override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
+            override fun onAdDisplayFailed(ad: MaxAd, err: MaxError) {
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdDisplayFailed")
             }
 
-            override fun onAdExpanded(ad: MaxAd?) {
+            override fun onAdExpanded(ad: MaxAd) {
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdExpanded")
             }
 
-            override fun onAdCollapsed(ad: MaxAd?) {
+            override fun onAdCollapsed(ad: MaxAd) {
                 Log.i(this@ApplovinBanner.getClassName(), "Applovin.banner.onAdCollapsed")
             }
 
