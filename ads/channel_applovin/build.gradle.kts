@@ -35,7 +35,7 @@ android {
 
 dependencies {
     api("com.github.karizal:ads-base:1.0.0-r2")
-    implementation("com.applovin:applovin-sdk:11.10.1")
+    implementation("com.applovin:applovin-sdk:12.3.1")
     implementation("com.google.android.gms:play-services-base:18.2.0")
 
     //noinspection GradleDynamicVersion
@@ -60,7 +60,7 @@ afterEvaluate {
 
                 groupId = "com.github.karizal"
                 artifactId = "ads_channel_applovin"
-                version = "1.0.0"
+                version = "1.1.0"
             }
         }
     }
