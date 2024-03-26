@@ -20,29 +20,29 @@ class ApplovinInterstitial(private val data: ApplovinData) : InterstitialContrac
     private var onFailure: (Activity) -> Unit = {}
 
     private val listener = object : MaxAdListener {
-        override fun onAdLoaded(ad: MaxAd?) {
+        override fun onAdLoaded(ad: MaxAd) {
             onInitializeOK.invoke(name)
         }
 
-        override fun onAdDisplayed(ad: MaxAd?) {
+        override fun onAdDisplayed(ad: MaxAd) {
 
         }
 
-        override fun onAdHidden(ad: MaxAd?) {
+        override fun onAdHidden(ad: MaxAd) {
             interstitial?.destroy()
             onHide.invoke()
             activity?.let { initialize(it, isDebug, onInitializeOK, onInitializeError) }
         }
 
-        override fun onAdClicked(ad: MaxAd?) {
+        override fun onAdClicked(ad: MaxAd) {
 
         }
 
-        override fun onAdLoadFailed(adUnitId: String?, error: MaxError?) {
+        override fun onAdLoadFailed(adUnitId: String, error: MaxError) {
             onInitializeError.invoke(name)
         }
 
-        override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
+        override fun onAdDisplayFailed(ad: MaxAd, error: MaxError) {
             activity?.let { onFailure.invoke(it) }
         }
     }
