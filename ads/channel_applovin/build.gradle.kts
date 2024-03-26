@@ -60,7 +60,7 @@ afterEvaluate {
 
                 groupId = "com.github.karizal"
                 artifactId = "ads_channel_applovin"
-                version = "1.1.0"
+                version = "1.1.1-r1"
             }
         }
     }
